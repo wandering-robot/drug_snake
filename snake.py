@@ -12,10 +12,8 @@ class Snake:
         new_cell = self.check_next_cell()
         if new_cell == None:
             self.alive = False
-            print('Died')
         elif new_cell in self.body_queue:
             self.alive = False
-            print('Died')
         elif new_cell.occupied:
             self.eat(new_cell)
             self.stoned += 25*int(1+len(self.body_queue)//5)
@@ -33,7 +31,6 @@ class Snake:
         if new_cell_x < len(self.space.matrix) and new_cell_x >=0:
             if new_cell_y < len(self.space.matrix[0]) and new_cell_y >= 0:
                 return (self.space.matrix[new_cell_x][new_cell_y])
-        print('Died')
 
     def _move(self, new_cell):
         self.body_queue.append(new_cell)
